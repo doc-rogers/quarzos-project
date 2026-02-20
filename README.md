@@ -139,18 +139,6 @@ All open-source. All self-hosted. No vendor lock-in.
 - **[Redis](https://github.com/redis/redis)** — Cache, memory, pub/sub
 - **[RabbitMQ](https://github.com/rabbitmq/rabbitmq-server)** — Message queue for agent dispatch
 
-### Cost
-
-| Item | Monthly |
-|------|---------|
-| Production server (Hetzner, ARM64) | €7 |
-| Factory server (Hetzner, x86) | €13 |
-| Domain & DNS | included |
-| SaaS subscriptions | €0 |
-| **Total** | **€20/mo** |
-
-Compare that to Airtable ($20) + Mailchimp ($13) + Zapier ($20) + Notion ($10) + a CRM ($25) = **$88/mo minimum**, and you don't own any of it.
-
 ---
 
 ## Current Status
