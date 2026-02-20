@@ -8,6 +8,10 @@
 
 One server. One assistant. Everything a retail store needs to manage customers, orders, inventory, and communications — without an IT department.
 
+[![Status](https://img.shields.io/badge/status-production-2ecc71?style=for-the-badge)]()
+[![Services](https://img.shields.io/badge/services-31_containers-4a6fa5?style=for-the-badge)]()
+[![Stack](https://img.shields.io/badge/stack-100%25_open_source-e67e22?style=for-the-badge)]()
+
 </div>
 
 ---
@@ -20,43 +24,46 @@ The owner manages everything from her phone and tablet. She doesn't use a termin
 
 That assistant runs on a single server with 31 containers, handling:
 
-- **Customer management** — contacts, purchase history, follow-ups
-- **Order tracking** — from inquiry to fulfillment
-- **Inventory** — stock levels, restock alerts, supplier data
-- **Messaging** — WhatsApp routing, Instagram DM handling
-- **Research** — product catalogs, supplier research, market info
-- **Automation** — appointment reminders, restock alerts, social media scheduling
+| | |
+|---|---|
+| **Clientes** | Contacts, purchase history, follow-ups |
+| **Pedidos** | Order tracking from inquiry to fulfillment |
+| **Inventario** | Stock levels, restock alerts, supplier data |
+| **Mensajes** | WhatsApp routing, Instagram DM handling |
+| **Conocimiento** | Product catalogs, supplier research, market info |
+| **Automatización** | Reminders, restock alerts, social media scheduling |
 
 ---
 
 ## How It Works
 
 ```
-  Phone / Tablet / Laptop
-          │
-          ▼
-    ┌───────────┐
-    │ Assistant  │  "¿Cuántos cuarzos rosa quedan?"
-    └─────┬─────┘
-          │
-    ┌─────▼─────┐
-    │  Gateway   │  Routes intent to the right tool
-    └─────┬─────┘
-          │
-    ┌─────┴─────────────────────┐
-    │                           │
-    ▼                           ▼
-┌────────┐              ┌────────────┐
-│  CRM   │              │ Knowledge  │
-│ Orders │              │   Search   │
-│  Inv.  │              │  Research  │
-└────────┘              └────────────┘
-    │                           │
-    └─────────┬─────────────────┘
-              │
-        ┌─────▼─────┐
-        │ Automation │  Reminders, alerts, messages
-        └───────────┘
+        📱  Phone / Tablet / Laptop
+                    │
+                    ▼
+            ┌───────────────┐
+            │   Asistente   │  "¿Cuántos cuarzos rosa quedan?"
+            │   (Assistant) │  "12 en stock. ¿Quieres reabastecer?"
+            └───────┬───────┘
+                    │
+            ┌───────▼───────┐
+            │    Gateway    │  Routes intent → right tool
+            └───────┬───────┘
+                    │
+        ┌───────────┼───────────┐
+        │           │           │
+        ▼           ▼           ▼
+   ┌─────────┐ ┌─────────┐ ┌─────────┐
+   │   CRM   │ │  Conoce  │ │  Auto   │
+   │ Clientes│ │ miento   │ │ mación  │
+   │ Pedidos │ │ Búsqueda │ │ Alertas │
+   │   Inv.  │ │ Research │ │ Mensajes│
+   └─────────┘ └─────────┘ └─────────┘
+        │           │           │
+        └───────────┼───────────┘
+                    │
+                    ▼
+                📱 "Pedido creado ✓"
 ```
 
 The owner asks a question or gives an instruction. The system figures out where it goes — CRM lookup, knowledge search, order update, or outbound message — and handles it.
@@ -67,16 +74,14 @@ The owner asks a question or gives an instruction. The system figures out where 
 
 | Layer | What It Does |
 |-------|-------------|
-| **Assistant** | Bilingual executive assistant (Spanish/English) with business domain guardrails |
-| **CRM** | Customer records, order tracking, inventory management via spreadsheet interface |
-| **Knowledge** | Document processing, RAG search, indexed business knowledge |
-| **Research** | Product research, supplier analysis, notes, podcast generation |
-| **Automation** | Workflow engine with 400+ integrations for scheduling, alerts, and routing |
-| **Messaging** | WhatsApp and Instagram DM handling, customer communication |
-| **Database** | PostgreSQL with auth, storage, and realtime subscriptions |
-| **Queue** | Task dispatch with parallel agent workers for background processing |
-
-**31 containers. One server. Runs itself.**
+| **Asistente** | Bilingual executive assistant with business domain guardrails |
+| **CRM** | Customer records, orders, inventory via spreadsheet interface |
+| **Conocimiento** | Document processing, RAG search, indexed business knowledge |
+| **Investigación** | Product research, supplier analysis, notes, podcast generation |
+| **Automatización** | Workflow engine — 400+ integrations for scheduling, alerts, routing |
+| **Mensajería** | WhatsApp and Instagram DM handling, customer communication |
+| **Base de Datos** | PostgreSQL with auth, storage, and realtime subscriptions |
+| **Cola de Tareas** | Task dispatch with parallel agent workers for background processing |
 
 ---
 
@@ -84,12 +89,12 @@ The owner asks a question or gives an instruction. The system figures out where 
 
 The assistant is purpose-built for this business. It:
 
-- Speaks Mexican Spanish naturally
-- Knows which questions go to which database table
-- Requires confirmation before sending any customer message
-- Cannot access banking, payment credentials, or server infrastructure
-- Logs every action for audit
-- Learns from corrections overnight
+- 🗣️ Speaks Mexican Spanish naturally
+- 🎯 Knows which questions go to which database table
+- ✋ Requires confirmation before sending any customer message
+- 🔒 Cannot access banking, payment credentials, or server infrastructure
+- 📋 Logs every action for audit
+- 🧠 Learns from corrections overnight
 
 It's not a general-purpose chatbot. It's a trained executive assistant with strict boundaries and a memory that gets better over time.
 
@@ -135,14 +140,15 @@ All services deployed and running in production.
 
 | Service | Status |
 |---------|--------|
-| Gateway | ● Live |
-| Assistant | ● Live |
-| CRM | ● Live |
-| Knowledge Engine | ● Live |
-| Research | ● Live |
-| Automation | ● Live |
-| Database (PostgreSQL + 13 services) | ● Live |
-| Task Queue | ● Live |
+| Gateway | 🟢 Live |
+| Asistente | 🟢 Live |
+| CRM | 🟢 Live |
+| Knowledge Engine | 🟢 Live |
+| Research | 🟢 Live |
+| Automation | 🟢 Live |
+| Database (PostgreSQL + 13 services) | 🟢 Live |
+| Task Queue | 🟢 Live |
+| Email | 🟢 Live |
 
 ---
 
