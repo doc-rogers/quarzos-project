@@ -110,20 +110,93 @@ It's not a general-purpose chatbot. It's a trained executive assistant with stri
 
 ---
 
-## Built With
+## The Tools
 
 All open-source. All self-hosted. The owner's data never leaves the server.
 
-| Tool | Role |
-|------|------|
-| [Archon](https://github.com/coleam00/Archon) | Knowledge engine — RAG search, document processing, task management |
-| [NocoDB](https://github.com/nocodb/nocodb) | CRM — spreadsheet interface for customers, orders, inventory |
-| [OpenNotebook](https://github.com/lfnovo/open-notebook) | Research — PDFs, video, audio, web content processing |
-| [n8n](https://github.com/n8n-io/n8n) | Automation — workflows, integrations, scheduling |
-| [Supabase](https://github.com/supabase/supabase) | Database — PostgreSQL with auth, storage, realtime |
-| [RabbitMQ](https://github.com/rabbitmq/rabbitmq-server) | Queue — parallel task dispatch and agent workers |
-| [Caddy](https://github.com/caddyserver/caddy) | Gateway — automatic HTTPS, reverse proxy |
-| [Redis](https://github.com/redis/redis) | Memory — conversation cache, session state, audit log |
+---
+
+### 📋 NocoDB
+**The CRM — "Your Rolodex, but it Thinks"**
+
+| | |
+|---|---|
+| **What it is** | Open-source Airtable alternative. Spreadsheet interface over PostgreSQL. |
+| **Role in the stack** | Every customer, order, and inventory item lives here. The single source of truth for business data. |
+| **Why it won** | The owner can browse her data the way she browses a spreadsheet — grid, gallery, kanban, calendar. No SQL required. The assistant queries it via API behind the scenes. |
+| **Used for** | Customer contacts, purchase history, order tracking, inventory levels, supplier records. |
+
+---
+
+### 📚 Archon
+**The Knowledge Engine — "The Reference Library"**
+
+| | |
+|---|---|
+| **What it is** | RAG-powered knowledge base with document processing, vector search, and task management. Runs as 6 microservices. |
+| **Role in the stack** | Intelligence layer. When the assistant needs to know something — a product spec, a supplier's lead time, a past conversation — it asks Archon. |
+| **Why it won** | Handles the messy stuff: PDFs, web pages, scanned invoices. Indexes everything into searchable vectors. The assistant gets smarter with every document added. |
+| **Used for** | Product catalog search, supplier research, document retrieval, task orchestration, agent coordination via MCP. |
+
+---
+
+### 📓 OpenNotebook
+**The Research Desk — "A Quiet Room to Think"**
+
+| | |
+|---|---|
+| **What it is** | Privacy-first research and note-taking with multi-model AI. Processes PDFs, video, audio, and web content. |
+| **Role in the stack** | Deep research. When the assistant needs more than a quick lookup — competitor analysis, supplier comparison, trend research — it works here. |
+| **Why it won** | Imports anything. Generates podcast-style audio summaries. The owner can listen to research while driving. Multi-notebook organization keeps projects separate. |
+| **Used for** | Supplier analysis, product research, trend reports, audio summaries, long-form notes. |
+
+---
+
+### ⚙️ n8n
+**The Workflow Engine — "The Wires Behind the Walls"**
+
+| | |
+|---|---|
+| **What it is** | Visual workflow automation with 400+ integrations and native AI capabilities. |
+| **Role in the stack** | Connects everything that needs to happen automatically. If A happens, do B. Every morning at 8, check C. |
+| **Why it won** | Visual builder means the workflows are visible and debuggable. LangChain integration means AI can be a step in any workflow. Self-hosted means no Zapier bill and no data leaving the network. |
+| **Used for** | Restock alerts, appointment reminders, social media scheduling, WhatsApp routing, Instagram DM handling, daily reports. |
+
+---
+
+### 🐘 Supabase
+**The Foundation — "Everything Sits on This"**
+
+| | |
+|---|---|
+| **What it is** | Self-hosted PostgreSQL with authentication, file storage, realtime subscriptions, and a REST API. Runs as 13 services. |
+| **Role in the stack** | The foundation. Every other service stores its data here. Auth handles user sessions. Storage handles file uploads. Realtime pushes updates to the UI. |
+| **Why it won** | One database for everything instead of five. pgvector for embeddings. PostgREST for instant APIs. The whole Firebase experience, but self-hosted and yours. |
+| **Used for** | Primary data store, user authentication, file storage, real-time UI updates, vector embeddings. |
+
+---
+
+### 🐇 RabbitMQ + Agent Workers
+**The Task Queue — "The Loading Dock"**
+
+| | |
+|---|---|
+| **What it is** | Message queue with parallel agent workers. Tasks go in, results come out. Three workers running simultaneously. |
+| **Role in the stack** | Background processing. When the assistant needs to do something that takes time — process a batch of invoices, send a series of messages — it drops it in the queue and moves on. |
+| **Why it won** | Reliable delivery. If a worker crashes, the task retries. Parallel execution means three things happen at once. The owner never waits. |
+| **Used for** | Bulk operations, background agent tasks, parallel processing, reliable task execution. |
+
+---
+
+### 🛡️ Caddy + Redis
+**The Gateway — "The Front Door"**
+
+| | |
+|---|---|
+| **What it is** | Caddy for automatic HTTPS and reverse proxy. Redis for session cache, conversation memory, and audit logging. |
+| **Role in the stack** | Everything enters through Caddy. Every conversation is cached in Redis. Every action is logged for audit. |
+| **Why it won** | Caddy handles TLS certificates automatically — no manual cert management. Redis gives the assistant instant memory recall and keeps conversation context alive across sessions. |
+| **Used for** | HTTPS termination, service routing, conversation cache, session state, immutable audit trail. |
 
 ---
 
