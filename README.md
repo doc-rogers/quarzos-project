@@ -20,7 +20,7 @@ One server. One assistant. Everything a retail store needs to manage customers, 
 
 ---
 
-## The Situation
+## The Client
 
 A retail store specializing in crystals, minerals, and specialty coffee. Walk-in customers, Instagram DMs, WhatsApp conversations, supplier relationships, and inventory that changes daily.
 
