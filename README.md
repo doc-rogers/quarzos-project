@@ -1,143 +1,131 @@
 <div align="center">
 
-<img src="assets/logo.png" alt="Lensman OS" width="120" />
+<img src="assets/logo.png" alt="Quarzos" width="120" />
 
 # The Quarzos Project
 
-**A complete back office — deployed, running, and managed from your phone.**
+**A complete back office for a small business — run from your phone.**
 
-Built for small business owners who need real infrastructure without an IT department.
-
----
-
-<img src="assets/hero.png" alt="Your office" width="540" />
+One server. One assistant. Everything a retail store needs to manage customers, orders, inventory, and communications — without an IT department.
 
 </div>
 
 ---
 
-## The Problem
+## The Situation
 
-Small business owners run on hustle — not dashboards.
+A retail store specializing in crystals, minerals, and specialty coffee. Walk-in customers, Instagram DMs, WhatsApp conversations, supplier relationships, and inventory that changes daily.
 
-They need to capture ideas while walking, send campaigns while commuting, and check on their business from wherever they are. But the tools that do these things are scattered across a dozen SaaS subscriptions, none of them talk to each other, and none of them were designed for someone who runs a crystal shop *and* an investment firm.
+The owner manages everything from her phone and tablet. She doesn't use a terminal. She doesn't SSH into anything. She talks to her assistant — in Spanish — and things get done.
 
-**The Quarzos Project** is proof that a single, self-hosted stack can replace all of it — for €20/month.
+That assistant runs on a single server with 31 containers, handling:
 
----
-
-## What It Does
-
-| Step | What Happens |
-|------|-------------|
-| **Capture** | Voice notes, chat messages, and quick inputs go in through the phone |
-| **Route** | The Daemon figures out what you meant and sends it to the right tool |
-| **Execute** | AI agents run the task — research, draft, update, notify — with guardrails |
-| **Store** | Everything gets indexed into a searchable knowledge base |
-| **Manage** | Contacts, leads, and data live in a no-code spreadsheet you actually control |
-| **Automate** | Workflows connect everything — 400+ integrations, zero manual handoffs |
-
-One input. Six layers of work. All from your pocket.
+- **Customer management** — contacts, purchase history, follow-ups
+- **Order tracking** — from inquiry to fulfillment
+- **Inventory** — stock levels, restock alerts, supplier data
+- **Messaging** — WhatsApp routing, Instagram DM handling
+- **Research** — product catalogs, supplier research, market info
+- **Automation** — appointment reminders, restock alerts, social media scheduling
 
 ---
 
-## Architecture
+## How It Works
 
-<div align="center">
-<img src="assets/stack-architecture.png" alt="Stack Architecture" width="480" />
-</div>
+```
+  Phone / Tablet / Laptop
+          │
+          ▼
+    ┌───────────┐
+    │ Assistant  │  "¿Cuántos cuarzos rosa quedan?"
+    └─────┬─────┘
+          │
+    ┌─────▼─────┐
+    │  Gateway   │  Routes intent to the right tool
+    └─────┬─────┘
+          │
+    ┌─────┴─────────────────────┐
+    │                           │
+    ▼                           ▼
+┌────────┐              ┌────────────┐
+│  CRM   │              │ Knowledge  │
+│ Orders │              │   Search   │
+│  Inv.  │              │  Research  │
+└────────┘              └────────────┘
+    │                           │
+    └─────────┬─────────────────┘
+              │
+        ┌─────▼─────┐
+        │ Automation │  Reminders, alerts, messages
+        └───────────┘
+```
 
-<br/>
-
-The stack is organized into functional layers:
-
-| Layer | What It Does | Key Tools |
-|-------|-------------|-----------|
-| **Gateway** | TLS, routing, caching | Caddy, Redis |
-| **Brain** | Intent routing, orchestration | Daemon, Control UI |
-| **Knowledge** | RAG search, document processing, task management | Archon (6 microservices) |
-| **Data** | CRM, structured data, auth, storage | NocoDB, PostgreSQL |
-| **Research** | Notes, PDFs, video/audio processing, podcasts | OpenNotebook, SurrealDB |
-| **Queue** | Agent dispatch, task execution | RabbitMQ, Agent Executor |
-| **Automation** | Workflow engine, integrations | n8n |
-
-**31 containers. One compose file. One server.**
+The owner asks a question or gives an instruction. The system figures out where it goes — CRM lookup, knowledge search, order update, or outbound message — and handles it.
 
 ---
 
-## Infrastructure
+## What's Running
 
-<div align="center">
-<img src="assets/infrastructure.png" alt="Infrastructure" width="480" />
-</div>
+| Layer | What It Does |
+|-------|-------------|
+| **Assistant** | Bilingual executive assistant (Spanish/English) with business domain guardrails |
+| **CRM** | Customer records, order tracking, inventory management via spreadsheet interface |
+| **Knowledge** | Document processing, RAG search, indexed business knowledge |
+| **Research** | Product research, supplier analysis, notes, podcast generation |
+| **Automation** | Workflow engine with 400+ integrations for scheduling, alerts, and routing |
+| **Messaging** | WhatsApp and Instagram DM handling, customer communication |
+| **Database** | PostgreSQL with auth, storage, and realtime subscriptions |
+| **Queue** | Task dispatch with parallel agent workers for background processing |
 
-<br/>
+**31 containers. One server. Runs itself.**
 
-| Node | Role | Spec |
-|------|------|------|
-| **Production Server** | Hosts the full stack | 8 GB RAM, ARM64 |
-| **Factory Server** | Build, test, CI/CD | 16 GB RAM, x86 |
-| **Dev Node** | Local development, mobile access | Laptop + phone |
+---
 
-All nodes connected via encrypted mesh network. The phone is the input device — frictionless capture, notifications, and control from wherever you are.
+## The Assistant
+
+The assistant is purpose-built for this business. It:
+
+- Speaks Mexican Spanish naturally
+- Knows which questions go to which database table
+- Requires confirmation before sending any customer message
+- Cannot access banking, payment credentials, or server infrastructure
+- Logs every action for audit
+- Learns from corrections overnight
+
+It's not a general-purpose chatbot. It's a trained executive assistant with strict boundaries and a memory that gets better over time.
+
+---
+
+## Built With
+
+All open-source. All self-hosted. The owner's data never leaves the server.
+
+| Tool | Role |
+|------|------|
+| [Archon](https://github.com/coleam00/Archon) | Knowledge engine — RAG search, document processing, task management |
+| [NocoDB](https://github.com/nocodb/nocodb) | CRM — spreadsheet interface for customers, orders, inventory |
+| [OpenNotebook](https://github.com/lfnovo/open-notebook) | Research — PDFs, video, audio, web content processing |
+| [n8n](https://github.com/n8n-io/n8n) | Automation — workflows, integrations, scheduling |
+| [Supabase](https://github.com/supabase/supabase) | Database — PostgreSQL with auth, storage, realtime |
+| [RabbitMQ](https://github.com/rabbitmq/rabbitmq-server) | Queue — parallel task dispatch and agent workers |
+| [Caddy](https://github.com/caddyserver/caddy) | Gateway — automatic HTTPS, reverse proxy |
+| [Redis](https://github.com/redis/redis) | Memory — conversation cache, session state, audit log |
 
 ---
 
 ## Range
 
-The same stack serves fundamentally different businesses:
+This same architecture has been deployed for two fundamentally different businesses:
 
-<table>
-<tr>
-<th></th>
-<th>Main Street</th>
-<th>Wall Street</th>
-</tr>
-<tr>
-<td><strong>Business</strong></td>
-<td>Retail — crystals, minerals, specialty coffee</td>
-<td>Investor relations firm</td>
-</tr>
-<tr>
-<td><strong>CRM</strong></td>
-<td>Walk-in customers, local events, inventory</td>
-<td>Investor contacts, deal pipeline, compliance</td>
-</tr>
-<tr>
-<td><strong>Automation</strong></td>
-<td>Appointment reminders, restock alerts, social media</td>
-<td>Report distribution, meeting prep, follow-ups</td>
-</tr>
-<tr>
-<td><strong>Knowledge</strong></td>
-<td>Product catalogs, supplier research, pricing</td>
-<td>Market analysis, regulatory filings, due diligence</td>
-</tr>
-<tr>
-<td><strong>Email</strong></td>
-<td>Event invites, loyalty updates, new arrivals</td>
-<td>Quarterly reports, LP communications, deal memos</td>
-</tr>
-</table>
+| | Main Street | Wall Street |
+|--|-------------|-------------|
+| **Business** | Retail — crystals, minerals, specialty coffee | Investor relations firm |
+| **Users** | Owner on phone/tablet, walk-in customers | Analysts, portfolio managers |
+| **CRM** | Customer contacts, purchase history, events | Investor contacts, deal pipeline, compliance |
+| **Automation** | Restock alerts, appointment reminders, social | Report distribution, meeting prep, follow-ups |
+| **Knowledge** | Product catalogs, supplier research | Market analysis, regulatory filings |
+| **Language** | Spanish | English |
 
-One stack. Two worlds. That's the point.
-
----
-
-## What's Under the Hood
-
-### Built With
-
-All open-source. All self-hosted. No vendor lock-in.
-
-- **[Archon](https://github.com/coleam00/Archon)** — Knowledge engine with RAG search, document processing, and AI agent orchestration
-- **[NocoDB](https://github.com/nocodb/nocodb)** — Open-source Airtable alternative for CRM and structured data
-- **[OpenNotebook](https://github.com/lfnovo/open-notebook)** — Privacy-first research and note-taking with multi-model AI
-- **[n8n](https://github.com/n8n-io/n8n)** — Workflow automation with 400+ integrations and native AI
-- **[Supabase](https://github.com/supabase/supabase)** — PostgreSQL with Auth, Storage, and Realtime
-- **[Caddy](https://github.com/caddyserver/caddy)** — Automatic HTTPS reverse proxy
-- **[Redis](https://github.com/redis/redis)** — Cache, memory, pub/sub
-- **[RabbitMQ](https://github.com/rabbitmq/rabbitmq-server)** — Message queue for agent dispatch
+One architecture. Two worlds. That's the point.
 
 ---
 
@@ -147,30 +135,22 @@ All services deployed and running in production.
 
 | Service | Status |
 |---------|--------|
-| Gateway (Caddy + Redis) | ● Live |
-| Control Plane (Daemon + UI) | ● Live |
-| Knowledge Engine (Archon, 6 services) | ● Live |
-| CRM (NocoDB) | ● Live |
-| Database (Supabase, 13 services) | ● Live |
-| Research (OpenNotebook) | ● Live |
-| Task Queue (RabbitMQ + Executor) | ● Live |
-| Automation (n8n) | ● Live |
-| Email (Listmonk) | ● Live |
+| Gateway | ● Live |
+| Assistant | ● Live |
+| CRM | ● Live |
+| Knowledge Engine | ● Live |
+| Research | ● Live |
+| Automation | ● Live |
+| Database (PostgreSQL + 13 services) | ● Live |
+| Task Queue | ● Live |
 
 ---
 
 ## What This Repo Contains
 
-This is a **showcase** — it documents the architecture, philosophy, and capabilities of the Quarzos Project without exposing proprietary configuration or credentials.
+This is a **showcase** — it documents what has been built without exposing configuration or credentials.
 
-```
-quarzos-project/
-├── README.md          # This file
-├── assets/            # Visual assets and diagrams
-└── docs/              # Architecture and philosophy (coming soon)
-```
-
-For deployment inquiries or a live demo, reach out directly.
+For deployment inquiries or a live walkthrough, reach out directly.
 
 ---
 
