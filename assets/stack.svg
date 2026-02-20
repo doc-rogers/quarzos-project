@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" font-family="'Georgia', serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+    <linearGradient id="terrGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c9725b"/>
+      <stop offset="100%" stop-color="#b5604a"/>
+    </linearGradient>
+    <linearGradient id="sageGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8fad88"/>
+      <stop offset="100%" stop-color="#7a9a72"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4a653"/>
+      <stop offset="100%" stop-color="#c49542"/>
+    </linearGradient>
+    <linearGradient id="slateGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6b7f99"/>
+      <stop offset="100%" stop-color="#5a6e88"/>
+    </linearGradient>
+    <linearGradient id="grayGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a8a8a"/>
+      <stop offset="100%" stop-color="#747474"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="720" fill="#faf8f5" rx="8"/>
+
+  <!-- ASISTENTE (top) -->
+  <g filter="url(#shadow)">
+    <circle cx="300" cy="55" r="38" fill="url(#terrGrad)"/>
+    <text x="300" y="48" text-anchor="middle" fill="white" font-size="11" font-weight="bold">📍</text>
+    <text x="300" y="64" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Asistente</text>
+  </g>
+  <text x="300" y="108" text-anchor="middle" fill="#6b5b4f" font-size="11" font-style="italic">"¿Cuántos cuarzos rosa quedan?"</text>
+
+  <!-- Arrow down -->
+  <line x1="300" y1="95" x2="300" y2="130" stroke="#b5a89a" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="295,128 300,138 305,128" fill="#b5a89a"/>
+
+  <!-- CRM box (left) -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="148" width="220" height="100" rx="10" fill="url(#sageGrad)"/>
+    <text x="170" y="175" text-anchor="middle" fill="white" font-size="15" font-weight="bold">CRM</text>
+    <text x="170" y="196" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11">Clientes · Pedidos</text>
+    <text x="170" y="214" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11">Inventario · Contactos</text>
+    <text x="170" y="237" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">NocoDB</text>
+  </g>
+
+  <!-- Knowledge box (right) -->
+  <g filter="url(#shadow)">
+    <rect x="320" y="148" width="220" height="100" rx="10" fill="url(#sageGrad)"/>
+    <text x="430" y="175" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Conocimiento</text>
+    <text x="430" y="196" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11">RAG · Documentos</text>
+    <text x="430" y="214" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11">Tareas · Búsqueda</text>
+    <text x="430" y="237" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">Archon</text>
+  </g>
+
+  <!-- Branch lines from Asistente -->
+  <line x1="270" y1="93" x2="170" y2="148" stroke="#b5a89a" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="330" y1="93" x2="430" y2="148" stroke="#b5a89a" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Research box (center) -->
+  <g filter="url(#shadow)">
+    <rect x="140" y="280" width="320" height="80" rx="10" fill="url(#slateGrad)"/>
+    <text x="300" y="310" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Investigación</text>
+    <text x="300" y="330" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11">PDFs · Video · Audio · Podcasts</text>
+    <text x="300" y="350" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">OpenNotebook + SurrealDB</text>
+  </g>
+
+  <!-- Arrows down to Research -->
+  <line x1="170" y1="248" x2="240" y2="280" stroke="#b5a89a" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="430" y1="248" x2="360" y2="280" stroke="#b5a89a" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Automation box -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="395" width="440" height="80" rx="10" fill="url(#amberGrad)"/>
+    <text x="300" y="425" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Automatización</text>
+    <text x="300" y="445" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11">Workflows · Alertas · Email · Mensajes · WhatsApp</text>
+    <text x="300" y="465" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">n8n · Listmonk · RabbitMQ</text>
+  </g>
+
+  <!-- Arrow down -->
+  <line x1="300" y1="360" x2="300" y2="395" stroke="#b5a89a" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="295,393 300,400 305,393" fill="#b5a89a"/>
+
+  <!-- Database box -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="510" width="360" height="80" rx="10" fill="url(#grayGrad)"/>
+    <text x="300" y="540" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Base de Datos</text>
+    <text x="300" y="560" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11">PostgreSQL · Redis · Auth · Storage</text>
+    <text x="300" y="580" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">Supabase (13 servicios) + Redis</text>
+  </g>
+
+  <!-- Arrow down -->
+  <line x1="300" y1="475" x2="300" y2="510" stroke="#b5a89a" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="295,508 300,515 305,508" fill="#b5a89a"/>
+
+  <!-- Gateway box -->
+  <g filter="url(#shadow)">
+    <rect x="180" y="625" width="240" height="60" rx="10" fill="#4a4a4a"/>
+    <text x="300" y="652" text-anchor="middle" fill="white" font-size="15" font-weight="bold">🛡️ Gateway</text>
+    <text x="300" y="674" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">Caddy · HTTPS · Reverse Proxy</text>
+  </g>
+
+  <!-- Arrow down -->
+  <line x1="300" y1="590" x2="300" y2="625" stroke="#b5a89a" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="295,623 300,630 305,623" fill="#b5a89a"/>
+
+  <!-- Container count -->
+  <text x="300" y="710" text-anchor="middle" fill="#8a7e72" font-size="10" font-style="italic">31 containers · 1 server · runs from your pocket</text>
+</svg>

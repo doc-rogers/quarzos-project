@@ -41,6 +41,12 @@ That assistant runs on a single server with 31 containers, handling:
 
 ## How It Works
 
+<div align="center">
+<img src="assets/stack.svg" alt="Quarzos Stack" width="540" />
+</div>
+
+<br/>
+
 ```
         📱  Phone / Tablet / Laptop
                     │
