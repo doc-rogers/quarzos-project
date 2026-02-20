@@ -12,6 +12,10 @@ One server. One assistant. Everything a retail store needs to manage customers, 
 [![Services](https://img.shields.io/badge/services-31_containers-4a6fa5?style=for-the-badge)]()
 [![Stack](https://img.shields.io/badge/stack-100%25_open_source-e67e22?style=for-the-badge)]()
 
+<br/>
+
+<img src="assets/hero.png" alt="Your office goes where you go" width="540" />
+
 </div>
 
 ---
